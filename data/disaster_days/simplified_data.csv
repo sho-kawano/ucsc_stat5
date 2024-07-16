@@ -1,0 +1,241 @@
+"year","category","reason","count","avg_days","total_days","log_total_days","longest_closure"
+2002,"Infrastructure","Facilities Issues",27,1.92592592592593,52,3.95124371858143,5
+2002,"Infrastructure","Power Outage",194,1.4020618556701,272,5.605802066296,6
+2002,"Infrastructure","Road Closures",1,1,1,0,1
+2002,"Natural Disasters & Weather","Inclement Weather",307,1.49837133550489,460,6.13122648948314,5
+2002,"Student Safety","Fires & Explosions",1,1,1,0,1
+2002,"Wildfires","Other Wildfires",2,3.5,7,1.94591014905531,6
+2003,"Infrastructure","Facilities Issues",12,1.08333333333333,13,2.56494935746154,2
+2003,"Infrastructure","Power Outage",57,1.21052631578947,69,4.23410650459726,3
+2003,"Natural Disasters & Weather","Inclement Weather",98,1.31632653061224,129,4.85981240436167,5
+2003,"Other","Other Reasons",1,1,1,0,1
+2003,"Student Safety","Dangerous Contamination",3,2.66666666666667,8,2.07944154167984,4
+2003,"Student Safety","Fires & Explosions",3,1,3,1.09861228866811,1
+2003,"Student Safety","Gas Leak",1,2,2,0.693147180559945,2
+2003,"Student Safety","Police Activity",2,1,2,0.693147180559945,1
+2003,"Student Safety","Threat of Violence",6,1,6,1.79175946922805,1
+2003,"Wildfires","2003 Southern California Fires",1024,4.1201171875,4219,8.34735341212434,13
+2003,"Wildfires","Canoe Fire 2003",16,3.8125,61,4.11087386417331,6
+2004,"Infrastructure","Facilities Issues",10,1.3,13,2.56494935746154,4
+2004,"Infrastructure","Power Outage",20,1,20,2.99573227355399,1
+2004,"Natural Disasters & Weather","2011 California Windstorm",1,1,1,0,1
+2004,"Natural Disasters & Weather","Earthquake",1,32,32,3.46573590279973,32
+2004,"Natural Disasters & Weather","Inclement Weather",79,1.70886075949367,135,4.90527477843843,3
+2004,"Student Safety","Dangerous Contamination",1,6,6,1.79175946922805,6
+2004,"Student Safety","Fires & Explosions",3,1,3,1.09861228866811,1
+2004,"Student Safety","Gas Leak",3,1,3,1.09861228866811,1
+2004,"Student Safety","Other Safety Risks",1,2,2,0.693147180559945,2
+2004,"Student Safety","Police Activity",4,1,4,1.38629436111989,1
+2004,"Student Safety","Threat of Violence",7,1,7,1.94591014905531,1
+2004,"Wildfires","Other Wildfires",14,1.71428571428571,24,3.17805383034795,2
+2005,"Infrastructure","Facilities Issues",19,1.21052631578947,23,3.13549421592915,2
+2005,"Infrastructure","Power Outage",31,1,31,3.43398720448515,1
+2005,"Natural Disasters & Weather","Inclement Weather",284,1.86619718309859,530,6.27287700654617,5
+2005,"Other","Other Reasons",6,1,6,1.79175946922805,1
+2005,"Student Safety","Dangerous Contamination",3,1.66666666666667,5,1.6094379124341,3
+2005,"Student Safety","Gas Leak",3,2,6,1.79175946922805,4
+2005,"Student Safety","Other Safety Risks",2,1.5,3,1.09861228866811,2
+2005,"Student Safety","Police Activity",1,1,1,0,1
+2005,"Student Safety","Threat of Violence",1,1,1,0,1
+2005,"Wildfires","2005 Southern California Fires",32,1.75,56,4.02535169073515,2
+2006,"Infrastructure","Facilities Issues",25,1.56,39,3.66356164612965,5
+2006,"Infrastructure","Power Outage",27,1.03703703703704,28,3.3322045101752,2
+2006,"Infrastructure","Road Closures",12,1.25,15,2.70805020110221,2
+2006,"Natural Disasters & Weather","Inclement Weather",344,1.4796511627907,509,6.23244801655052,6
+2006,"Other","Other Reasons",9,1,9,2.19722457733622,1
+2006,"Student Safety","Dangerous Contamination",2,1,2,0.693147180559945,1
+2006,"Student Safety","Gas Leak",2,1,2,0.693147180559945,1
+2006,"Student Safety","Police Activity",1,1,1,0,1
+2006,"Student Safety","Protests",31,1,31,3.43398720448515,1
+2006,"Student Safety","Threat of Violence",3,1,3,1.09861228866811,1
+2006,"Wildfires","Day Fire 2006",5,3.4,17,2.83321334405622,5
+2006,"Wildfires","Other Wildfires",2,1.5,3,1.09861228866811,2
+2006,"Wildfires","Shekell Fire 2006",11,1,11,2.39789527279837,1
+2006,"Wildfires","Sierra Fire 2006",6,1,6,1.79175946922805,1
+2007,"Infrastructure","Facilities Issues",19,1.31578947368421,25,3.2188758248682,4
+2007,"Infrastructure","Power Outage",50,1.34,67,4.20469261939097,4
+2007,"Natural Disasters & Weather","Inclement Weather",245,1.30612244897959,320,5.76832099579377,5
+2007,"Other","Other Reasons",11,1,11,2.39789527279837,1
+2007,"Student Safety","Animal & Insect Threat",1,2,2,0.693147180559945,2
+2007,"Student Safety","Dangerous Contamination",2,3,6,1.79175946922805,5
+2007,"Student Safety","Fires & Explosions",1,4,4,1.38629436111989,4
+2007,"Student Safety","Gas Leak",5,1,5,1.6094379124341,1
+2007,"Student Safety","Other Safety Risks",1,1,1,0,1
+2007,"Student Safety","Outbreak & Quarantine",1,1,1,0,1
+2007,"Student Safety","Police Activity",81,1,81,4.39444915467244,1
+2007,"Student Safety","Threat of Violence",21,1.33333333333333,28,3.3322045101752,2
+2007,"Wildfires","2007 Southern California Fires",1354,3.84859675036928,5211,8.55852705490921,14
+2007,"Wildfires","Other Wildfires",9,2.88888888888889,26,3.25809653802148,4
+2008,"Infrastructure","Facilities Issues",13,1.07692307692308,14,2.63905732961526,2
+2008,"Infrastructure","Power Outage",67,1.11940298507463,75,4.31748811353631,3
+2008,"Natural Disasters & Weather","Inclement Weather",556,1.71223021582734,952,6.85856503479136,8
+2008,"Other","Other Reasons",17,1.76470588235294,30,3.40119738166216,4
+2008,"Student Safety","Gas Leak",1,1,1,0,1
+2008,"Student Safety","Outbreak & Quarantine",1,1,1,0,1
+2008,"Student Safety","Police Activity",1,1,1,0,1
+2008,"Student Safety","Threat of Violence",3,1,3,1.09861228866811,1
+2008,"Wildfires","2008 Butte County Fires",13,4.69230769230769,61,4.11087386417331,9
+2008,"Wildfires","2008 Southern California Fires",120,1.65833333333333,199,5.29330482472449,5
+2008,"Wildfires","Other Wildfires",3,1.66666666666667,5,1.6094379124341,3
+2008,"Wildfires","Summit Fire 2008",35,1.11428571428571,39,3.66356164612965,3
+2009,"Infrastructure","Facilities Issues",11,1.27272727272727,14,2.63905732961526,2
+2009,"Infrastructure","Power Outage",50,1.18,59,4.07753744390572,2
+2009,"Natural Disasters & Weather","Inclement Weather",226,1.61504424778761,365,5.89989735358249,6
+2009,"Other","Other Reasons",2,1,2,0.693147180559945,1
+2009,"Student Safety","Dangerous Contamination",2,1,2,0.693147180559945,1
+2009,"Student Safety","Fires & Explosions",2,2.5,5,1.6094379124341,3
+2009,"Student Safety","Gas Leak",2,2.5,5,1.6094379124341,4
+2009,"Student Safety","Outbreak & Quarantine",36,2.38888888888889,86,4.45434729625351,5
+2009,"Student Safety","Police Activity",2,1,2,0.693147180559945,1
+2009,"Student Safety","Threat of Violence",1,2,2,0.693147180559945,2
+2009,"Wildfires","2009 Southern California Fires",66,2.34848484848485,155,5.04342511691925,3
+2009,"Wildfires","Jesusita Fire 2009",43,1.6046511627907,69,4.23410650459726,3
+2009,"Wildfires","Other Wildfires",4,1.5,6,1.79175946922805,2
+2010,"Infrastructure","Facilities Issues",9,1,9,2.19722457733622,1
+2010,"Infrastructure","Power Outage",33,1.15151515151515,38,3.63758615972639,3
+2010,"Natural Disasters & Weather","Earthquake",13,10,130,4.86753445045558,10
+2010,"Natural Disasters & Weather","Inclement Weather",254,1.57874015748032,401,5.99396142730657,10
+2010,"Other","Other Reasons",2,1,2,0.693147180559945,1
+2010,"Student Safety","Fires & Explosions",1,3,3,1.09861228866811,3
+2010,"Student Safety","Gas Leak",1,1,1,0,1
+2010,"Student Safety","Threat of Violence",2,1,2,0.693147180559945,1
+2011,"Infrastructure","2011 Southern California Power Outage",492,1,492,6.19847871649231,1
+2011,"Infrastructure","Facilities Issues",10,1,10,2.30258509299405,1
+2011,"Infrastructure","Power Outage",52,1.11538461538462,58,4.06044301054642,3
+2011,"Natural Disasters & Weather","2011 California Windstorm",165,1.64242424242424,271,5.6021188208797,2
+2011,"Natural Disasters & Weather","Inclement Weather",187,1.32620320855615,248,5.51342874616498,6
+2011,"Natural Disasters & Weather","Tsunami",76,1,76,4.33073334028633,1
+2011,"Other","Other Reasons",5,1,5,1.6094379124341,1
+2011,"Student Safety","Animal & Insect Threat",1,2,2,0.693147180559945,2
+2011,"Student Safety","Dangerous Contamination",4,1.5,6,1.79175946922805,3
+2011,"Student Safety","Facilities Issues",1,1,1,0,1
+2011,"Student Safety","Fires & Explosions",2,3,6,1.79175946922805,3
+2011,"Student Safety","Gas Leak",1,1,1,0,1
+2011,"Student Safety","Other Safety Risks",11,3,33,3.49650756146648,3
+2011,"Student Safety","Outbreak & Quarantine",1,1,1,0,1
+2011,"Student Safety","Police Activity",5,1,5,1.6094379124341,1
+2011,"Student Safety","Threat of Violence",1,1,1,0,1
+2011,"Wildfires","Other Wildfires",2,3,6,1.79175946922805,3
+2012,"Infrastructure","Facilities Issues",5,1,5,1.6094379124341,1
+2012,"Infrastructure","Power Outage",33,1.03030303030303,34,3.52636052461616,2
+2012,"Infrastructure","Road Closures",8,1,8,2.07944154167984,1
+2012,"Natural Disasters & Weather","Inclement Weather",61,1.24590163934426,76,4.33073334028633,4
+2012,"Student Safety","Fires & Explosions",1,1,1,0,1
+2012,"Student Safety","Gas Leak",3,1,3,1.09861228866811,1
+2012,"Student Safety","Other Safety Risks",1,2,2,0.693147180559945,2
+2012,"Student Safety","Police Activity",4,1,4,1.38629436111989,1
+2012,"Student Safety","Threat of Violence",13,1.53846153846154,20,2.99573227355399,2
+2012,"Wildfires","Other Wildfires",8,3,24,3.17805383034795,6
+2013,"Infrastructure","Facilities Issues",21,1,21,3.04452243772342,1
+2013,"Infrastructure","Power Outage",12,1,12,2.484906649788,1
+2013,"Natural Disasters & Weather","Inclement Weather",80,1.15,92,4.52178857704904,2
+2013,"Other","Other Reasons",1,1,1,0,1
+2013,"Student Safety","Dangerous Contamination",1,4,4,1.38629436111989,4
+2013,"Student Safety","Fires & Explosions",1,1,1,0,1
+2013,"Student Safety","Gas Leak",2,1,2,0.693147180559945,1
+2013,"Student Safety","Police Activity",3,2,6,1.79175946922805,2
+2013,"Student Safety","Threat of Violence",8,1,8,2.07944154167984,1
+2013,"Wildfires","Other Wildfires",8,1.25,10,2.30258509299405,3
+2013,"Wildfires","Powerhouse Fire 2013",2,1,2,0.693147180559945,1
+2013,"Wildfires","Rim Fire 2013",22,5.5,121,4.79579054559674,9
+2014,"Infrastructure","Facilities Issues",15,1.33333333333333,20,2.99573227355399,5
+2014,"Infrastructure","Power Outage",16,1.0625,17,2.83321334405622,2
+2014,"Natural Disasters & Weather","Earthquake",35,2.02857142857143,71,4.26267987704132,5
+2014,"Natural Disasters & Weather","Inclement Weather",36,1.41666666666667,51,3.93182563272433,7
+2014,"Natural Disasters & Weather","Pineapple Express",621,1.16264090177134,722,6.58202513889283,3
+2014,"Other","Other Reasons",12,1.83333333333333,22,3.09104245335832,4
+2014,"Student Safety","Animal & Insect Threat",2,1,2,0.693147180559945,1
+2014,"Student Safety","Dangerous Contamination",4,6.5,26,3.25809653802148,8
+2014,"Student Safety","Fires & Explosions",3,1.66666666666667,5,1.6094379124341,2
+2014,"Student Safety","Gas Leak",2,1,2,0.693147180559945,1
+2014,"Student Safety","Outbreak & Quarantine",4,5,20,2.99573227355399,5
+2014,"Student Safety","Threat of Violence",12,1.16666666666667,14,2.63905732961526,2
+2014,"Wildfires","2014 San Diego Fires",87,1.86206896551724,162,5.08759633523238,2
+2014,"Wildfires","Colby Fire 2014",6,1,6,1.79175946922805,1
+2014,"Wildfires","Happy Camp Complex Fires 2014",10,1.6,16,2.77258872223978,5
+2014,"Wildfires","Other Wildfires",28,1.89285714285714,53,3.97029191355212,8
+2015,"Infrastructure","Facilities Issues",12,1.08333333333333,13,2.56494935746154,2
+2015,"Infrastructure","Power Outage",23,1,23,3.13549421592915,1
+2015,"Natural Disasters & Weather","Inclement Weather",51,1.74509803921569,89,4.48863636973214,5
+2015,"Natural Disasters & Weather","Pineapple Express",2,1,2,0.693147180559945,1
+2015,"Other","Other Reasons",7,18,126,4.83628190695148,120
+2015,"Student Safety","Dangerous Contamination",1,3,3,1.09861228866811,3
+2015,"Student Safety","Fires & Explosions",5,1,5,1.6094379124341,1
+2015,"Student Safety","Outbreak & Quarantine",1,2,2,0.693147180559945,2
+2015,"Student Safety","Police Activity",2,8,16,2.77258872223978,9
+2015,"Student Safety","Threat of Violence",1032,1.00581395348837,1038,6.94505106372583,2
+2015,"Wildfires","Butte Fire 2015",35,4.62857142857143,162,5.08759633523238,7
+2015,"Wildfires","Other Wildfires",7,4.14285714285714,29,3.36729582998647,21
+2015,"Wildfires","Rocky Fire 2015",16,3.75,60,4.0943445622221,5
+2015,"Wildfires","Summit Fire 2015",6,2,12,2.484906649788,2
+2015,"Wildfires","Valley Fire 2015",40,4.85,194,5.26785815906333,10
+2016,"Infrastructure","Facilities Issues",22,1.22727272727273,27,3.29583686600433,4
+2016,"Infrastructure","Power Outage",30,1.16666666666667,35,3.55534806148941,5
+2016,"Natural Disasters & Weather","Inclement Weather",71,1.11267605633803,79,4.36944785246702,3
+2016,"Other","Other Reasons",1,3,3,1.09861228866811,3
+2016,"Student Safety","Dangerous Contamination",18,4.66666666666667,84,4.43081679884331,5
+2016,"Student Safety","Fires & Explosions",2,1,2,0.693147180559945,1
+2016,"Student Safety","Gas Leak",7,2.14285714285714,15,2.70805020110221,4
+2016,"Student Safety","Other Safety Risks",2,4,8,2.07944154167984,4
+2016,"Student Safety","Outbreak & Quarantine",1,1,1,0,1
+2016,"Student Safety","Police Activity",35,1,35,3.55534806148941,1
+2016,"Student Safety","Threat of Violence",11,1,11,2.39789527279837,1
+2016,"Wildfires","2016 San Bernadino Fires",1,2,2,0.693147180559945,2
+2016,"Wildfires","2016 San Bernardino Fires",161,2.2360248447205,360,5.88610403145016,5
+2016,"Wildfires","Border Fire 2016",10,5,50,3.91202300542815,5
+2016,"Wildfires","Clayton Fire 2016",11,5.81818181818182,64,4.15888308335967,6
+2016,"Wildfires","Other Wildfires",4,6.25,25,3.2188758248682,12
+2017,"Infrastructure","Facilities Issues",20,1.2,24,3.17805383034795,5
+2017,"Infrastructure","Power Outage",41,1.21951219512195,50,3.91202300542815,7
+2017,"Natural Disasters & Weather","Inclement Weather",679,2.0279823269514,1377,7.22766249872865,86
+2017,"Natural Disasters & Weather","Oroville Dam Flooding",63,4.88888888888889,308,5.73009978297357,6
+2017,"Other","Other Reasons",8,3.625,29,3.36729582998647,15
+2017,"Student Safety","Animal & Insect Threat",1,1,1,0,1
+2017,"Student Safety","Dangerous Contamination",4,34,136,4.91265488573605,116
+2017,"Student Safety","Fires & Explosions",3,4,12,2.484906649788,9
+2017,"Student Safety","Gas Leak",2,1,2,0.693147180559945,1
+2017,"Student Safety","Other Safety Risks",1,1,1,0,1
+2017,"Student Safety","Outbreak & Quarantine",27,1.88888888888889,51,3.93182563272433,5
+2017,"Student Safety","Police Activity",6,1.33333333333333,8,2.07944154167984,3
+2017,"Student Safety","Protests",10,2,20,2.99573227355399,2
+2017,"Student Safety","School Shooting",1,4,4,1.38629436111989,4
+2017,"Student Safety","Threat of Violence",3,2,6,1.79175946922805,4
+2017,"Wildfires","2007 Southern California Fires",46,1.95652173913043,90,4.49980967033027,2
+2017,"Wildfires","2017 Southern California Fires",694,3.47262247838617,2410,7.7873820264847,13
+2017,"Wildfires","2017 Southern California Wildfires",1,3,3,1.09861228866811,3
+2017,"Wildfires","2017 Wine Country Fires",596,4.69630872483221,2799,7.93701748951545,17
+2017,"Wildfires","2018 Southern California Fires",1,7,7,1.94591014905531,7
+2017,"Wildfires","Canyon 2 Fire 2017",30,1,30,3.40119738166216,1
+2017,"Wildfires","Cascade Fire 2017",7,5.28571428571429,37,3.61091791264422,6
+2017,"Wildfires","Helena Fire 2017",5,5.6,28,3.3322045101752,6
+2017,"Wildfires","Orleans Complex Fires 2017",16,1.5,24,3.17805383034795,2
+2017,"Wildfires","Other Wildfires",10,2.6,26,3.25809653802148,5
+2017,"Wildfires","Railroad Fire 2017",17,2.76470588235294,47,3.85014760171006,4
+2018,"Infrastructure","Facilities Issues",10,1.3,13,2.56494935746154,3
+2018,"Infrastructure","Power Outage",66,1.3030303030303,86,4.45434729625351,5
+2018,"Natural Disasters & Weather","Inclement Weather",210,1.62380952380952,341,5.83188247728352,4
+2018,"Other","Other Reasons",9,1.44444444444444,13,2.56494935746154,5
+2018,"Student Safety","Dangerous Contamination",9,1.77777777777778,16,2.77258872223978,2
+2018,"Student Safety","Fires & Explosions",3,1,3,1.09861228866811,1
+2018,"Student Safety","Other Safety Risks",1,1,1,0,1
+2018,"Student Safety","Police Activity",4,1,4,1.38629436111989,1
+2018,"Student Safety","School Shooting",22,1.04545454545455,23,3.13549421592915,2
+2018,"Student Safety","Threat of Violence",29,1.03448275862069,30,3.40119738166216,2
+2018,"Wildfires","2017 Southern California Fires",56,5.92857142857143,332,5.80513496891649,15
+2018,"Wildfires","2018 Southern California Fires",167,2.59281437125748,433,6.07073772800249,7
+2018,"Wildfires","Camp Fire 2018",1634,1.85556915544676,3032,8.01697774676226,17
+2018,"Wildfires","Carr Fire 2018",9,1.44444444444444,13,2.56494935746154,5
+2018,"Wildfires","Holy Fire 2018",76,3.89473684210526,296,5.69035945432406,5
+2018,"Wildfires","Other Wildfires",10,1,10,2.30258509299405,1
+2018,"Wildfires","Ranch Fire 2018",12,7.5,90,4.49980967033027,10
+2019,"Infrastructure","Facilities Issues",6,1,6,1.79175946922805,1
+2019,"Infrastructure","Power Outage",21,1.23809523809524,26,3.25809653802148,5
+2019,"Natural Disasters & Weather","Inclement Weather",415,1.86987951807229,776,6.65415252018322,6
+2019,"Student Safety","Dangerous Contamination",2,1,2,0.693147180559945,1
+2019,"Student Safety","Fires & Explosions",1,1,1,0,1
+2019,"Student Safety","Gas Leak",1,2,2,0.693147180559945,2
+2019,"Student Safety","Outbreak & Quarantine",1,3,3,1.09861228866811,3
+2019,"Student Safety","Threat of Violence",2,1,2,0.693147180559945,1
+2019,"Wildfires","2018 Southern California Fires",3,1.33333333333333,4,1.38629436111989,2
+2019,"Wildfires","Camp Fire 2018",16,1.625,26,3.25809653802148,3
+2019,"Wildfires","Other Wildfires",1,2,2,0.693147180559945,2

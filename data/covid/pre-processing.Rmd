@@ -1,0 +1,45 @@
+---
+title: "Pre-Processing"
+output: html_notebook
+---
+
+```{r message=F}
+library(lubridate)
+library(tidyverse)
+
+data1 = read.csv("covid19hospitalbycounty.csv")
+data1 %>% head()
+```
+
+```{r}
+data1  %>% dim()
+```
+ 
+```{r}
+data1 %>% summary()
+```
+ 
+ 
+Note NA's are not removed for the following variables (since there were a ton of missing values):
+
+* all_hospital_beds
+* icu_suspected_covid_patients
+ 
+```{r}
+data1 %>% 
+    mutate(todays_date=as.Date(todays_date)) %>% 
+    group_by(date = floor_date(todays_date, "month"), county) %>%
+    reframe(
+      hospitalized_covid_confirmed_patients = sum(hospitalized_covid_confirmed_patients, na.rm = T), 
+      hospitalized_suspected_covid_patients = sum(hospitalized_suspected_covid_patients, na.rm = T), 
+      hospitalized_covid_patients = sum(hospitalized_covid_patients, na.rm = T), 
+      all_hospital_beds = sum(all_hospital_beds),
+      icu_covid_confirmed_patients = sum(icu_covid_confirmed_patients, na.rm = T), 
+      icu_suspected_covid_patients = sum(icu_suspected_covid_patients), 
+      icu_available_beds = sum(icu_available_beds, na.rm = T)
+              ) %>% 
+  write.csv("simplified_data.csv", row.names=F)
+```
+
+
+

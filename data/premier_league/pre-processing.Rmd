@@ -1,0 +1,36 @@
+---
+title: "Pre-Processing"
+output: html_notebook
+---
+
+```{r message=F}
+library(lubridate)
+library(tidyverse)
+
+data1 = read.csv("soccer21-22.csv")
+data1 %>% head()
+```
+
+```{r}
+data1  %>% dim()
+```
+ 
+```{r}
+data1 %>% summary()
+```
+ 
+Changing from European Dates to US Date format
+ 
+```{r}
+data1 <- data1 %>% 
+  mutate(Date = Date %>% as.Date(format="%d/%m/%Y"))
+```
+
+
+```{r}
+data1 %>% 
+  write.csv("simplified_data.csv", row.names=F)
+```
+
+
+

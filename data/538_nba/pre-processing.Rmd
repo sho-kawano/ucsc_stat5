@@ -1,0 +1,34 @@
+---
+title: "Pre-Processing"
+output: html_notebook
+---
+
+```{r message=F}
+library(tidyverse)
+
+data1 = read.csv("modern_RAPTOR_by_team.csv")
+data1 %>% head()
+```
+
+```{r}
+data1 %>% filter(mp>100) %>% dim()
+```
+ 
+ 
+ 
+```{r}
+data1 %>% colnames()
+```
+
+
+
+```{r}
+data1 %>% 
+  filter(mp>100) %>% 
+  select(player_name, player_id, season, season_type, team, poss, mp, 
+         raptor_total, raptor_offense, raptor_defense, 
+         war_total, war_reg_season, war_playoffs, pace_impact) %>% 
+  write.csv("simplified_data.csv", row.names=F)
+
+```
+

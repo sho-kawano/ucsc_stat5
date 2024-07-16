@@ -1,0 +1,23 @@
+---
+title: "Pre-Processing"
+output: html_notebook
+---
+
+```{r message=F}
+library(tidyverse)
+
+data1 = read.csv("data_aging_congress.csv")
+data1 %>% head()
+```
+
+```{r}
+data1 %>% summary()
+```
+
+
+```{r}
+data1 %>% filter(congress>107) %>% write.csv("simplified_data.csv", row.names=F)
+```
+ 
+ 
+

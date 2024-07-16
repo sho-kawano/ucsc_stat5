@@ -1,0 +1,29 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r message=F}
+library(tidyverse)
+
+data1 = read.csv("wnba-player-stats.csv")
+data1 %>% head()
+```
+
+```{r}
+data1 %>% summary()
+```
+
+
+```{r}
+data1 %>% colnames()
+```
+
+
+```{r}
+data1 %>% filter(G>18)  %>% 
+  write.csv("simplified_data.csv", row.names=F)
+```
+
+
+

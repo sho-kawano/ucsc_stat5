@@ -1,0 +1,37 @@
+---
+title: "Pre-Processing"
+output: html_notebook
+---
+
+```{r message=F}
+library(tidyverse)
+
+data1 = read.csv("disasterDays.csv")
+data1 %>% head()
+```
+
+```{r}
+data1 %>% dim()
+```
+
+Simplify: 
+
+```{r}
+data1 %>% group_by(year, category, reason) %>%  
+  reframe(count = n(), 
+          avg_days = mean(days),
+          total_days = sum(days), 
+          log_total_days = log(sum(days)), 
+          longest_closure=max(days)) %>% 
+  write.csv("simplified_data.csv", row.names=F)
+
+```
+
+some plots: 
+
+```{r}
+data1 %>% group_by(year, category, reason) %>%  
+  reframe(count = n(), no_days = sum(days), log_no_days = log(sum(days))) %>% 
+  ggplot(aes(x=year, y=log_no_days)) + geom_point() + geom_ + facet_wrap(~category)
+```
+

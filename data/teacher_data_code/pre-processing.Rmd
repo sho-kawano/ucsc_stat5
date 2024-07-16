@@ -1,0 +1,43 @@
+---
+title: "Combining Teacher Data"
+output: html_notebook
+---
+
+```{r}
+library(tidyverse)
+```
+
+
+
+```{r}
+data1 = read.csv("teacher_exp_schools.csv")
+data1 %>% head()
+```
+
+
+```{r}
+data2 = read.csv("teacher_exp_teachers.csv")
+data2 %>% head()
+```
+
+```{r}
+exp = data2$experience_years %>% as.numeric()
+data2[which(is.na(exp)),]
+```
+
+
+```{r}
+data2_edit = data2[-which(is.na(exp)),] %>% 
+  mutate(experience_years = experience_years %>% as.numeric()) %>% 
+  group_by(school_name, district_code) %>% 
+  reframe(mean_exp_years = mean(experience_years))
+```
+
+```{r}
+processed_data = data1 %>% right_join(data2_edit)
+```
+
+```{r}
+processed_data %>% write.csv("processed_data.csv", row.names = F)
+```
+

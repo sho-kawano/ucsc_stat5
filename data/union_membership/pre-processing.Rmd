@@ -1,0 +1,32 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r message=F}
+library(tidyverse)
+
+data1 = read.csv("states.csv")
+data1 %>% head()
+```
+
+```{r}
+data1 %>% summary()
+```
+
+
+```{r}
+data1 %>% dim()
+```
+
+
+Just keep the 10 most populous states: 
+
+```{r}
+data1 %>% filter(state %in% c("California", "Texas", "Florida", "New York", "Pennsylvania", "Illinois", "Ohio", "Georgia", "North Carolina", "Michigan"))  %>% 
+ filter(sector =="Private") %>% 
+ write.csv("simplified_data.csv", row.names=F)
+```
+
+
+
