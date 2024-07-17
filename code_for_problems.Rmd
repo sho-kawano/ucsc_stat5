@@ -1,0 +1,87 @@
+---
+title: "Code for all problems"
+author: "Sho Kawano"
+date: "2024-07-16"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+
+##Problem 2
+
+```{r}
+set.seed(7)
+data <- read.csv("data/538_wnba/simplified_data.csv") 
+data %>% sample_n(10) %>% select(player_ID, Player, year=year_ID, Age, Team=Tm, Games=G, Position=Pos, Minutes=MP, True_Shooting_Pct=TS_pct) %>% 
+  write.csv("figs+tables/wk1/wk1_p2.csv", row.names = F)
+```
+
+
+##Problem 3
+
+```{r}
+days <- 1:7
+salmon <- c(7, 8, 19, 9, 11, 10, 16)
+
+par(mfrow = c(1,1), mar=c(5, 3, 3, 3))
+hist(salmon, xlab="Number of Salmon caught", main="Distribution of salmon caught over 7 days", ylab="Count") 
+```
+
+```{r}
+sum(salmon)
+mean(salmon)
+```
+
+
+
+
+
+##Problem 7
+
+
+```{r}
+data <- read.csv("data/538_wnba/simplified_data.csv") 
+plt <- data %>% ggplot(aes(x=TS_pct)) + 
+  geom_histogram(bins=20, color="blue", fill="lightblue") + theme_bw() +
+  labs(title="Distribution of True Shooting Percentage by WNBA players", 
+       subtitle = "1997-2019 Seasons") + 
+  xlab("True Shooting Percentage") 
+plt %>% ggsave(file="figs+tables/wk1/fig_p3.png", height = 3, width=6)
+```
+
+
+##Problem 8
+
+
+```{r}
+histplt <- iris %>% ggplot(aes(x=Petal.Length)) + 
+   geom_histogram(bins=20, color="blue", fill="lightblue") + 
+   theme_bw() +
+   labs(title="Petal Length of Iris Flowers") + 
+   xlab("Petal Length") 
+ 
+boxplt <- iris %>% ggplot(aes(x=Petal.Length)) + 
+   geom_boxplot(color="blue", fill="lightblue", alpha=0.3, ymax=0.1, ymin=-0.1) + 
+   theme_bw() +
+   theme(axis.text.y=element_blank())+
+   xlab("Petal Length") 
+ 
+histplt + boxplt
+
+(histplt + boxplt) %>% ggsave(file="figs+tables/wk2/fig2.png", height = 2.5, width=6)
+```
+
+
+```{r}
+boxplt <- iris %>% ggplot(aes(x=Petal.Length, y=Species, fill=Species, colour = Species)) + 
+   geom_boxplot(alpha=0.5) + 
+   theme_bw() +
+   xlab("Petal Length") 
+boxplt
+boxplt %>% ggsave(file="figs+tables/wk2/fig3.png", height = 2.5, width=6)
+```
+
