@@ -28,7 +28,7 @@ days <- 1:7
 salmon <- c(7, 8, 19, 9, 11, 10, 16)
 
 par(mfrow = c(1,1), mar=c(5, 3, 3, 3))
-hist(salmon, xlab="Number of Salmon caught", main="Distribution of salmon caught over 7 days", ylab="Count") 
+hist(salmon, xlab="Number of Salmon caught", main="Distribution of salmon caught over 7 days", ylab="Count", col="lightblue") 
 ```
 
 ```{r}
@@ -38,9 +38,7 @@ mean(salmon)
 
 
 
-
-
-##Problem 7
+##Problem 5
 
 
 ```{r}
@@ -54,7 +52,7 @@ plt %>% ggsave(file="figs+tables/wk1/fig_p3.png", height = 3, width=6)
 ```
 
 
-##Problem 8
+##Problem 6
 
 
 ```{r}
@@ -83,5 +81,98 @@ boxplt <- iris %>% ggplot(aes(x=Petal.Length, y=Species, fill=Species, colour = 
    xlab("Petal Length") 
 boxplt
 boxplt %>% ggsave(file="figs+tables/wk2/fig3.png", height = 2.5, width=6)
+```
+
+##Problem 7
+
+```{r}
+diabetes <- c(6, 8, 25, 11, 5, 9, 6)
+sum(diabetes)
+mean(diabetes)
+median(diabetes)
+```
+
+```{r}
+boxplot(diabetes)
+```
+
+
+```{r}
+diabetes <- c(6, 8, 25)
+sum(diabetes)
+mean(diabetes)
+median(diabetes)
+```
+
+
+```{r}
+mean(diabetes[diabetes<24])
+median(diabetes[diabetes<24])
+```
+
+
+
+##Problem 8
+
+
+```{r }
+library(taylor)
+duration = taylor_all_songs$duration_ms / 60000 # in minutes
+duration = duration[!is.na(duration)]
+
+par(mfrow = c(1,1), mar=c(5, 5, 3, 3))
+hist(duration, main="Duration of all Taylor Swift Songs", 
+     xlab="Song Duration in Minutes", ylab="Count", col="lightblue")
+```
+
+
+```{r}
+par(mfrow = c(1,1), mar=c(5, 5, 3, 3))
+hist(duration, main="Duration of all Taylor Swift Songs", xlab="Song Duration in Minutes", ylab="Count", col="lightblue")
+abline(v=quantile(duration, 0.1), lty=2, lw=2, col="blue")
+# abline(v=quantile(duration, 0.5), lty=2, lw=2, col="blue")
+abline(v=quantile(duration, 0.95), lty=2, lw=2, col="blue")
+```
+
+
+##Problem 9
+
+```{r}
+data("storms")
+storms %>% head()
+```
+
+
+```{r}
+by_storms = storms %>% group_by(name, year) %>% summarise(wind=max(wind)) 
+```
+
+
+
+```{r}
+windspeed = by_storms$wind
+par(mfrow = c(1,1), mar=c(5, 5, 3, 3))
+hist(windspeed, main="Max Windspeed for all Atlantic storms", 
+     xlab="Maximum Observed Windspeed (knots)", ylab="Count", col="lightblue")
+```
+
+```{r}
+summary(windspeed)
+```
+
+```{r}
+mode0 <- function(x) {
+  ux <- unique(x)
+  ux[which.max(tabulate(match(x, ux)))]
+}
+
+mode0(windspeed)
+```
+
+
+```{r}
+sd(windspeed)
+IQR(windspeed)
+max(windspeed) - min(windspeed)
 ```
 
