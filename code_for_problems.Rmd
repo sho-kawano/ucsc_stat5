@@ -16,7 +16,8 @@ library(tidyverse)
 ```{r}
 set.seed(7)
 data <- read.csv("data/538_wnba/simplified_data.csv") 
-data %>% sample_n(10) %>% select(player_ID, Player, year=year_ID, Age, Team=Tm, Games=G, Position=Pos, Minutes=MP, True_Shooting_Pct=TS_pct) %>% 
+data %>% sample_n(10) %>% 
+  select(player_ID, Player, year=year_ID, Age, Team=Tm, Games=G, Position=Pos, Minutes=MP, True_Shooting_Pct=TS_pct) %>% 
   write.csv("figs+tables/wk1/wk1_p2.csv", row.names = F)
 ```
 
@@ -86,29 +87,24 @@ boxplt %>% ggsave(file="figs+tables/wk2/fig3.png", height = 2.5, width=6)
 ##Problem 7
 
 ```{r}
-diabetes <- c(6, 8, 25, 11, 5, 9, 6)
-sum(diabetes)
-mean(diabetes)
-median(diabetes)
+flu <- c(6, 8, 25, 11, 5, 9, 6)
+sum(flu)
+mean(flu)
+median(flu)
 ```
 
 ```{r}
-boxplot(diabetes)
-```
-
-
-```{r}
-diabetes <- c(6, 8, 25)
-sum(diabetes)
-mean(diabetes)
-median(diabetes)
+boxplot(flu)
 ```
 
 
 ```{r}
-mean(diabetes[diabetes<24])
-median(diabetes[diabetes<24])
+flu <- c(6, 8, 25)
+sum(flu)
+mean(flu)
+median(flu)
 ```
+
 
 
 
@@ -175,4 +171,152 @@ sd(windspeed)
 IQR(windspeed)
 max(windspeed) - min(windspeed)
 ```
+
+
+## Problem 10
+
+```{r}
+load("data/census_data_CA.RDA")
+all_data = all_data %>% 
+    # filter(rentBurden>0.2) %>% 
+  mutate(geo_name=gsub("County, California", "", geo_name)) 
+```
+
+
+<!-- ```{r} -->
+<!-- all_data %>%  -->
+<!--   ggplot(aes(x=income, y=no_car)) + geom_point() +  -->
+<!--   geom_label(aes(x=100000,y=no_car-0.02, label=geo_name), data=all_data %>% filter(no_car>0.2)) + -->
+<!--   geom_smooth(method = "lm", se=FALSE)  -->
+<!-- ``` -->
+
+
+```{r fig.dim=c(10, 5)}
+library(patchwork)
+plt1 = all_data %>% 
+  ggplot(aes(x=female_only, y=povPerc)) + geom_point() + 
+  geom_smooth(method = "lm", se=FALSE) +
+  xlab("Rate of single mother households") + 
+  ylab("Poverty rate") 
+
+plt2 = all_data %>% 
+  ggplot(aes(x=degree, y=povPerc)) + geom_point() + 
+  geom_smooth(method = "lm", se=FALSE) +
+  xlab("Rate of households with college degrees") + 
+  ylab("Poverty rate") 
+
+
+plt1 + plt2 
+```
+
+
+
+```{r fig.dim=c(10, 5)}
+library(patchwork)
+
+plt2 = all_data %>% 
+  filter(pop > 50000) %>% 
+  ggplot(aes(x=degree, y=povPerc)) + geom_point() + 
+  geom_smooth(method = "lm", se=FALSE) +
+  xlab("Rate of households with college degrees") + 
+  ylab("Poverty rate") 
+
+plt4 = all_data %>% 
+  filter(pop > 50000) %>% 
+  ggplot(aes(x=degree, y=rentBurden)) + geom_point() + 
+  geom_smooth(method = "lm", se=FALSE) +
+  xlab("Rate of households with college degrees") + 
+  ylab("Rent burden")  
+
+
+plt2 + plt4
+```
+
+```{r}
+all_data = all_data %>% mutate(population=pop/10^6)
+
+plt2 = all_data %>% 
+  filter(pop > 50000) %>%  
+  ggplot(aes(x=degree, y=povPerc)) + geom_point(aes(size=population), alpha=0.5) + 
+  geom_smooth(method = "lm", se=FALSE) +
+  xlab("Rate of households with college degrees") + 
+  ylab("Poverty rate")  +
+  labs(size="Population (in Millions)")
+
+plt4 = all_data %>% 
+  filter(pop > 50000) %>% 
+  ggplot(aes(x=degree, y=rentBurden)) + geom_point(aes(size=population), alpha=0.5) + 
+  geom_smooth(method = "lm", se=FALSE) +
+  xlab("Rate of households with college degrees") + 
+  ylab("Rent burden")  +
+  labs(size="Population (in Millions)")
+
+ggpubr::ggarrange(plt2, plt4, common.legend = TRUE)
+```
+
+
+```{r}
+all_data %>% 
+  filter(pop > 50000) %>% 
+  ggplot(aes(x=degree, y=rentBurden)) + geom_point(aes(size=population), alpha=0.5) + 
+  geom_smooth(method="lm", se=FALSE) +
+  geom_smooth(se=FALSE, color="darkblue", lty=4) +
+  xlab("Rate of households with college degrees") + 
+  ylab("Rent burden")  +
+  labs(size="Population (in Millions)") + theme(legend.position = "top")
+
+```
+
+
+
+```{r}
+library(usmap)
+plt1 <- plot_usmap("counties", values = "poverty", data=all_data %>% mutate(poverty=povPerc), include="California") + 
+  theme(legend.position = "bottom", legend.text = element_text(angle = 45, vjust = 1, hjust=1, size=8),
+        legend.title = element_text(size=12))+
+    scale_fill_viridis_c()
+
+plt2 <- plot_usmap("counties", values = "A", data=all_data %>% mutate(A=degree), include="California") + 
+  theme(legend.position = "bottom", legend.text = element_text(angle = 45, vjust = 1, hjust=1, size=8),
+        legend.title = element_text(size=12))+
+    scale_fill_viridis_c()
+
+plt3 <- plot_usmap("counties", values = "B", data=all_data %>% mutate(B=female_only), include="California") + 
+  theme(legend.position = "bottom", legend.text = element_text(angle = 45, vjust = 1, hjust=1, size=8), 
+        legend.title = element_text(size=12))+
+    scale_fill_viridis_c()
+
+
+plt1+plt2+plt3 
+```
+
+
+## Problem 10
+
+
+```{r}
+midwest = c("Illinois", "Indiana", "Iowa", "Kansas", "Michigan",
+            "Minnesota", "Missouri", "Nebraska", "North Dakota", 
+            "Ohio", "South Dakota", "Wisconsin")
+data = read.csv("data/union_membership/states.csv") %>% 
+  # filter(state %in% midwest) %>% 
+  filter(sector =="Private") 
+#data = data %>% 
+#mutate(politics=ifelse(state %in% c("North Carolina", "Georgia", "Florida", "Texas"), "GOP Leaning", "DEM Leaning"))
+```
+
+```{r}
+data$employment %>% summary()
+```
+
+
+
+
+```{r}
+data %>% 
+  ggplot(aes(x=year, y=p_members)) + geom_line(alpha=0.1, aes(group=state)) + geom_smooth()
+```
+
+
+
 
