@@ -17,8 +17,7 @@ library(tidyverse)
 set.seed(7)
 data <- read.csv("data/538_wnba/simplified_data.csv") 
 data %>% sample_n(10) %>% 
-  select(player_ID, Player, year=year_ID, Age, Team=Tm, Games=G, Position=Pos, Minutes=MP, True_Shooting_Pct=TS_pct) %>% 
-  write.csv("figs+tables/wk1/wk1_p2.csv", row.names = F)
+  select(player_ID, Player, year=year_ID, Age, Team=Tm, Games=G, Position=Pos, Minutes=MP, True_Shooting_Pct=TS_pct) 
 ```
 
 
@@ -49,7 +48,7 @@ plt <- data %>% ggplot(aes(x=TS_pct)) +
   labs(title="Distribution of True Shooting Percentage by WNBA players", 
        subtitle = "1997-2019 Seasons") + 
   xlab("True Shooting Percentage") 
-plt %>% ggsave(file="figs+tables/wk1/fig_p3.png", height = 3, width=6)
+plt
 ```
 
 
@@ -70,8 +69,6 @@ boxplt <- iris %>% ggplot(aes(x=Petal.Length)) +
    xlab("Petal Length") 
  
 histplt + boxplt
-
-(histplt + boxplt) %>% ggsave(file="figs+tables/wk2/fig2.png", height = 2.5, width=6)
 ```
 
 
@@ -81,7 +78,6 @@ boxplt <- iris %>% ggplot(aes(x=Petal.Length, y=Species, fill=Species, colour = 
    theme_bw() +
    xlab("Petal Length") 
 boxplt
-boxplt %>% ggsave(file="figs+tables/wk2/fig3.png", height = 2.5, width=6)
 ```
 
 ##Problem 7
@@ -291,32 +287,248 @@ plt1+plt2+plt3
 ```
 
 
-## Problem 10
+
+## Problem 16
+
+```{r}
+load("data/census_data_CA.RDA")
+all_data = all_data %>% 
+    # filter(rentBurden>0.2) %>% 
+  mutate(geo_name=gsub("County, California", "", geo_name)) 
+```
+
+
+```{r fig.dim=c(10, 5)}
+library(patchwork)
+all_data %>%
+  ggplot(aes(x=assistance, y=povPerc)) + geom_point() +
+  geom_smooth(method = "lm", se=FALSE) +
+  xlab("Rate of households receiving CalFresh") +
+  ylab("County-Level Poverty rate")
+```
 
 
 ```{r}
-midwest = c("Illinois", "Indiana", "Iowa", "Kansas", "Michigan",
-            "Minnesota", "Missouri", "Nebraska", "North Dakota", 
-            "Ohio", "South Dakota", "Wisconsin")
-data = read.csv("data/union_membership/states.csv") %>% 
-  # filter(state %in% midwest) %>% 
-  filter(sector =="Private") 
-#data = data %>% 
-#mutate(politics=ifelse(state %in% c("North Carolina", "Georgia", "Florida", "Texas"), "GOP Leaning", "DEM Leaning"))
+lm_fit = lm(povPerc~assistance, data=all_data) 
+lm_fit %>% summary()
 ```
+
 
 ```{r}
-data$employment %>% summary()
+sqrt(0.6593)
 ```
 
+## Problem 17
+
+```{r fig.dim=c(10, 5)}
+library(patchwork)
+all_data %>%
+  mutate(predicted = lm_fit$fitted.values) %>% 
+  ggplot(aes(x=assistance, y=povPerc)) + 
+  geom_point() +
+  geom_smooth(method="lm", se=F, linewidth=0.5) + 
+  geom_segment(aes(xend =assistance, yend = predicted), color="blue", lty=2) +
+  geom_abline(slope=0, lty=2, color="blue")+
+  xlab("Rate of households receiving CalFresh") +
+  ylab("County-Level Poverty rate")
+```
+
+
+
+```{r}
+all_data %>%
+  mutate(predicted = lm_fit$fitted.values) %>% 
+  ggplot(aes(x=assistance, y=povPerc)) + 
+  geom_point() +
+  geom_smooth(method="lm", se=F) + 
+  # geom_segment(aes(xend =assistance, yend = predicted), color="blue", lty=2) +
+  geom_abline(slope=1, lty=2, color="red", lty=2)+
+  geom_abline(slope=1, intercept=0.05, lty=2, color="red", lty=2)+
+  xlab("Rate of households receiving CalFresh") +
+  ylab("County-Level Poverty rate")
+```
+
+
+## Problem 18
+
+
+```{r}
+data <- read.csv("data/AL_team_statistics.csv") 
+data %>% head()
+```
 
 
 
 ```{r}
 data %>% 
-  ggplot(aes(x=year, y=p_members)) + geom_line(alpha=0.1, aes(group=state)) + geom_smooth()
+  # mutate(predicted = lm(scoring~batting, data=data)$fitted.values) %>% 
+  ggplot(aes(x=batting, y=scoring)) + 
+  geom_point() + geom_smooth(method="lm", se=F) +
+  geom_point(color="red", size=4, shape=2, data=data %>% filter(team=="Kansas City"))+
+  xlab("Batting Average") + ylab("Average Runs Scored") 
+```
+
+
+```{r}
+y = data$scoring
+```
+
+```{r}
+y.hat = round(lm(scoring~batting, data=data)$fitted.values, 2)
+```
+
+
+```{r}
+y-y.hat
+```
+
+```{r}
+data$team[which(y-y.hat==max(y-y.hat))]
+```
+
+```{r}
+data$team[which(y-y.hat==min(y-y.hat))]
+```
+
+```{r}
+lm(scoring~batting, data=data)
+```
+
+
+```{r}
+data.frame(data$team, data$batting, y, y.hat, residual=y-y.hat) %>% write.csv("mlb.csv")
+```
+
+# Problem 19
+
+```{r}
+library(taylor)
+taylor_all_songs %>% colnames()
 ```
 
 
 
+
+```{r}
+plt = taylor_all_songs %>% ggplot(aes(x=tempo, y=danceability)) + geom_point(alpha=0.6) +
+  xlab("Tempo") + ylab("Danceability") 
+plt
+```
+
+
+```{r warning=F}
+library(patchwork)
+(plt + geom_smooth(se=F) + ggtitle("Trend A")) + 
+(plt + geom_smooth(method="lm", se=F) + ggtitle("Trend B"))
+```
+
+## Problem 20
+
+```{r}
+data <- palmerpenguins::penguins
+```
+
+
+```{r}
+data %>% ggplot(aes(x=bill_depth_mm, y=bill_length_mm, color=island, shape=species)) + 
+  geom_point(alpha=0.9) + xlab("Bill Depth (mm)") + ylab("Bill Length (mm)") + 
+  ggtitle("Bill Characteristics of Penguins") + theme_bw() 
+```
+
+
+## Problem 31
+
+```{r}
+pnorm(73, mean=66, sd=3.1)
+```
+
+```{r}
+pnorm(60, mean=66, sd=3.1)
+```
+
+
+## Problem 32
+
+```{r}
+pnorm(100, mean=60, sd=30)
+```
+
+
+```{r fig.width=8, fig.height=6}
+par(mfrow=c(2,3), mai = c(0.7, 0.5, 0.5, 0.1))
+
+# mean & sd
+m=60
+s=30
+
+# (a)
+curve(dnorm(x,m,s), xlim=c(-3*s+m,3*s+m), ylab="Density", main="A", xlab="Income", xaxt = "n")
+ 
+# define shaded region
+from.z <- -3*s+m
+to.z <- 2*s+m
+ 
+S.x  <- c(from.z, seq(from.z, to.z, 1), to.z)
+S.y  <- c(0, dnorm(seq(from.z, to.z, 1), m, s), 0)
+polygon(S.x,S.y, col="blue")
+axis(1, at = c(-2*s+m, -1*s+m, m, 1*s+m,  2*s+m))
+# (b)
+curve(dnorm(x,m,s), xlim=c(-3*s+m,3*s+m), ylab="Density", main="B", xlab="Income", xaxt = "n")
+ 
+# define shaded region
+from.z <- 1*s+m
+to.z <- 2*s+m
+ 
+S.x  <- c(from.z, seq(from.z, to.z, 1), to.z)
+S.y  <- c(0, dnorm(seq(from.z, to.z, 1), m, s), 0)
+polygon(S.x,S.y, col="blue")
+axis(1, at = c(-2*s+m, -1*s+m, m, 1*s+m,  2*s+m))
+
+# (c)
+curve(dnorm(x,m,s), xlim=c(-3*s+m,3*s+m), ylab="Density", main="C", xlab="Income", xaxt = "n")
+ 
+# define shaded region
+from.z <- -1*s+m
+to.z <- 1*s+m
+ 
+S.x  <- c(from.z, seq(from.z, to.z, 1), to.z)
+S.y  <- c(0, dnorm(seq(from.z, to.z, 1), m, s), 0)
+polygon(S.x,S.y, col="blue")
+axis(1, at = c(-2*s+m, -1*s+m, m, 1*s+m,  2*s+m))
+# (d)
+curve(dnorm(x,m,s), xlim=c(-3*s+m,3*s+m), ylab="Density", main="D", xlab="Income", xaxt = "n")
+ 
+# define shaded region
+from.z <- -1*s+m
+to.z <- 3*s+m
+ 
+S.x  <- c(from.z, seq(from.z, to.z, 1), to.z)
+S.y  <- c(0, dnorm(seq(from.z, to.z, 1), m, s), 0)
+polygon(S.x,S.y, col="blue")
+axis(1, at = c(-2*s+m, -1*s+m, m, 1*s+m,  2*s+m))
+# (E)
+curve(dnorm(x,m,s), xlim=c(-3*s+m,3*s+m), ylab="Density", main="E", xlab="Income" , xaxt = "n")
+ 
+# define shaded region
+from.z <- 0*s+m
+to.z <- 2*s+m
+ 
+S.x  <- c(from.z, seq(from.z, to.z, 1), to.z)
+S.y  <- c(0, dnorm(seq(from.z, to.z, 1), m, s), 0)
+polygon(S.x,S.y, col="blue")
+axis(1, at = c(-2*s+m, -1*s+m, m, 1*s+m,  2*s+m))
+
+# (f)
+curve(dnorm(x,m,s), xlim=c(-3*s+m,3*s+m), 
+      ylab="Density", main="F", xlab="Income", xaxt = "n")
+ 
+# define shaded region
+from.z <- 2*s+m
+to.z <- 3*s+m
+ 
+S.x  <- c(from.z, seq(from.z, to.z, 1), to.z)
+S.y  <- c(0, dnorm(seq(from.z, to.z, 1), m, s), 0)
+polygon(S.x,S.y, col="blue")
+axis(1, at = c(-2*s+m, -1*s+m, m, 1*s+m,  2*s+m))
+```
 
